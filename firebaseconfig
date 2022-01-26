@@ -1,0 +1,8 @@
+const firebaseConfig = {
+  apiKey: "AIzaSyAoN3-PHWDb8ZY2qDVhIFiA3gMl8E2QbUk",
+  authDomain: "linkedin-clone-19afb.firebaseapp.com",
+  projectId: "linkedin-clone-19afb",
+  storageBucket: "linkedin-clone-19afb.appspot.com",
+  messagingSenderId: "852601101003",
+  appId: "1:852601101003:web:5a9285cc28991809ef594e"
+};

@@ -6,3 +6,60 @@ const firebaseConfig = {
   messagingSenderId: "852601101003",
   appId: "1:852601101003:web:5a9285cc28991809ef594e"
 };
+import { initializeApp } from "firebase/app";
+import {getFirestore} from '@firebase/firestore'
+import {getAuth} from 'firebase/auth'
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyAoN3-PHWDb8ZY2qDVhIFiA3gMl8E2QbUk",
+  authDomain: "linkedin-clone-19afb.firebaseapp.com",
+  projectId: "linkedin-clone-19afb",
+  storageBucket: "linkedin-clone-19afb.appspot.com",
+  messagingSenderId: "852601101003",
+  appId: "1:852601101003:web:5a9285cc28991809ef594e"
+};
+
+// Initialize Firebase
+const firebaseApp = initializeApp(firebaseConfig);
+const db=getFirestore(firebaseApp)
+const auth =getAuth(firebaseApp)
+export {db,auth}
+
+
+
+
+
+
+
+db.collection("posts").onSnapshot((snapshot) =>
+       setPosts(
+         snapshot.docs.map((doc) => ({
+           id: doc.id,
+           data: doc.data(),
+         }))
+       )
+     );
+
+
+
+     useEffect(() => {
+      db.collection("posts").onSnapshot((snapshot) =>
+        setPosts(
+          snapshot.docs.map((doc) => ({
+            id: doc.id,
+            data: doc.data(),
+          }))
+        )
+      );
+    }, []);     
+
+
+
+
+    db.collection("posts").add({
+      name: "afii",
+      description: "this is a test ",
+      message: input,
+      photoUrl: "",
+      timestamp: serverTimestamp(),
+    });
